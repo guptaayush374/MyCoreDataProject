@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyCoreDataProject/CompanyListViewController.swift"
-            timestampString = "576424823.948074"
+            timestampString = "576425598.192557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "addCompany(with:)"
             landmarkType = "7">
          </BreakpointContent>

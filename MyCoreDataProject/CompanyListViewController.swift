@@ -13,8 +13,6 @@ class CompanyListViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tableViewCompanyList: UITableView!
     
-    @IBOutlet weak var btnAdd: UIBarButtonItem!
-   
     var companies = [
         Company(name: "Apple", founded: Date()),
         Company(name: "Google", founded: Date()),
@@ -25,9 +23,11 @@ class CompanyListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navBar.backgroundColor = UIColor.lightRed
-        self.navBar.barTintColor = UIColor.lightRed
+        //Service.shared.downloadCompaniesFromServer()
         view.backgroundColor = UIColor.darkBlue
+        navigationItem.title = "Companies"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAddCompany))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addCompany))
         
         self.tableViewCompanyList.dataSource = self
         self.tableViewCompanyList.delegate = self
@@ -37,11 +37,6 @@ class CompanyListViewController: UIViewController {
         
         self.tableViewCompanyList.reloadData()
     }
-    
-    @IBAction func tapOnAddBtn(_ sender: UIBarButtonItem) {
-        
-    }
-    
     
     @objc func handleAddCompany() {
         print("Adding Company...")
