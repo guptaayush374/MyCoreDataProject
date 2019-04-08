@@ -55,7 +55,8 @@ class CompanyListViewController: UIViewController {
     
     func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue.identifier == "toCreateCompany") {
-            
+            let vc = segue.destination as! CreateCompanyViewController
+            vc.vc = self
         }
     }
 }

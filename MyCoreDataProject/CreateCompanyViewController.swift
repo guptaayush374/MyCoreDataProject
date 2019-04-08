@@ -13,7 +13,9 @@ class CreateCompanyViewController: UIViewController {
     @IBOutlet weak var viewBack: UIView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var textFieldName: UITextField!
-        
+    
+    var vc: CompanyListViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,9 +28,6 @@ class CreateCompanyViewController: UIViewController {
         
         guard let name = self.textFieldName.text else { return }
         let company = Company(name: name, founded: Date())
-        
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "CompanyListViewController") as! CompanyListViewController
-        secondViewController.addCompany(with: company)
-        self.navigationController?.pushViewController(secondViewController, animated: true)
+        vc?.addCompany(with: company)
     }
 }
