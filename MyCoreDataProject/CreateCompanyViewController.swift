@@ -26,6 +26,7 @@ class CreateCompanyViewController: UIViewController {
     @objc func handleAddCompany() {
         print("Adding Company...")
         
+        self.navigationController?.popViewController(animated: true)
         guard let name = self.textFieldName.text else { return }
         let company = Company(name: name, founded: Date())
         vc?.addCompany(with: company)
