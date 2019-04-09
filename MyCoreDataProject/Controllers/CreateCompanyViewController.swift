@@ -34,10 +34,11 @@ class CreateCompanyViewController: UIViewController {
     @objc func handleAddCompany() {
         print("Adding Company...")
         
+        guard let name = self.textFieldName.text else { return }
+        let company = Company(name: name, founded: Date())
+        delegate?.userDidEnterInformation(company: company)
+        print(delegate ?? "")
         if (self.delegate != nil) {
-            guard let name = self.textFieldName.text else { return }
-            let company = Company(name: name, founded: Date())
-            delegate?.userDidEnterInformation(company: company)
             self.navigationController?.popViewController(animated: true)
         } else {
             print("Delegate is nil.")
