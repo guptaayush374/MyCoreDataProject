@@ -86,6 +86,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E92F1386225C6D3A0096BBC0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9266F55225B635A0094A315 /* Company.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E92F1387225C6D4E0096BBC0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9C67A4E225B25F900D0185B /* CompanyListViewController.swift */,
+				E9266F57225B66D30094A315 /* CreateCompanyViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E92F1388225C6D650096BBC0 /* NetworkHandler */ = {
+			isa = PBXGroup;
+			children = (
+				E9C67A7D225B42F400D0185B /* Service.swift */,
+			);
+			path = NetworkHandler;
+			sourceTree = "<group>";
+		};
+		E92F1389225C6D9C0096BBC0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E9266F53225B59A30094A315 /* CompanyTVCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		E9C67A40225B25F800D0185B = {
 			isa = PBXGroup;
 			children = (
@@ -110,17 +143,16 @@
 			isa = PBXGroup;
 			children = (
 				E9C67A4C225B25F900D0185B /* AppDelegate.swift */,
-				E9C67A4E225B25F900D0185B /* CompanyListViewController.swift */,
-				E9266F57225B66D30094A315 /* CreateCompanyViewController.swift */,
-				E9C67A7D225B42F400D0185B /* Service.swift */,
 				E9C67A7F225B52A200D0185B /* UIColor+theme.swift */,
 				E9C67A50225B25F900D0185B /* Main.storyboard */,
 				E9C67A56225B260F00D0185B /* Assets.xcassets */,
 				E9C67A58225B260F00D0185B /* LaunchScreen.storyboard */,
 				E9C67A5B225B261000D0185B /* Info.plist */,
 				E9C67A53225B25F900D0185B /* MyCoreDataProject.xcdatamodeld */,
-				E9266F53225B59A30094A315 /* CompanyTVCell.swift */,
-				E9266F55225B635A0094A315 /* Company.swift */,
+				E92F1389225C6D9C0096BBC0 /* Cell */,
+				E92F1388225C6D650096BBC0 /* NetworkHandler */,
+				E92F1386225C6D3A0096BBC0 /* Model */,
+				E92F1387225C6D4E0096BBC0 /* Controllers */,
 			);
 			path = MyCoreDataProject;
 			sourceTree = "<group>";
