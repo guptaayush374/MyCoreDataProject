@@ -53,8 +53,8 @@ class CompanyListViewController: UIViewController {
         self.tableViewCompanyList.insertRows(at: [newIndexPath], with: .automatic)
     }
     
-    func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        if (segue.identifier == "toCreateCompany") {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCreateCompany" {
             let vc = segue.destination as! CreateCompanyViewController
             vc.delegate = self
         }
