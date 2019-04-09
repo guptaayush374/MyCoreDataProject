@@ -63,8 +63,8 @@ class CompanyListViewController: UIViewController {
 
 extension CompanyListViewController: DataEnteredDelegate {
     
-    func userDidEnterInformation(info: Company) {
-        self.addCompany(with: info)
+    func userDidEnterInformation(company: Company) {
+        self.addCompany(with: company)
     }
 }
 

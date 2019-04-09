@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DataEnteredDelegate: class {
-    func userDidEnterInformation(info: Company)
+    func userDidEnterInformation(company: Company)
 }
 
 class CreateCompanyViewController: UIViewController {
@@ -34,9 +34,13 @@ class CreateCompanyViewController: UIViewController {
     @objc func handleAddCompany() {
         print("Adding Company...")
         
-        guard let name = self.textFieldName.text else { return }
-        let company = Company(name: name, founded: Date())
-        delegate?.userDidEnterInformation(info: company)
-        self.navigationController?.popViewController(animated: true)
+        if (self.delegate != nil) {
+            guard let name = self.textFieldName.text else { return }
+            let company = Company(name: name, founded: Date())
+            delegate?.userDidEnterInformation(company: company)
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            print("Delegate is nil.")
+        }
     }
 }

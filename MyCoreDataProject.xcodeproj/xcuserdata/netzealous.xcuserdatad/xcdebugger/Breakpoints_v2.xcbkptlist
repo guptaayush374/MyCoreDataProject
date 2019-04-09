@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyCoreDataProject/Controllers/CompanyListViewController.swift"
-            timestampString = "576486090.423618"
+            timestampString = "576488063.434106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
             endingLineNumber = "67"
-            landmarkName = "userDidEnterInformation(info:)"
+            landmarkName = "userDidEnterInformation(company:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyCoreDataProject/Controllers/CompanyListViewController.swift"
-            timestampString = "576486090.423736"
+            timestampString = "576488063.434184"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyCoreDataProject/Controllers/CompanyListViewController.swift"
-            timestampString = "576486090.423797"
+            timestampString = "576488063.434242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyCoreDataProject/Controllers/CompanyListViewController.swift"
-            timestampString = "576486090.423852"
+            timestampString = "576488063.434293"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyCoreDataProject/Controllers/CompanyListViewController.swift"
-            timestampString = "576486090.423903"
+            timestampString = "576488063.434342"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyCoreDataProject/Controllers/CreateCompanyViewController.swift"
-            timestampString = "576486090.423955"
+            timestampString = "576488063.434392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "handleAddCompany()"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyCoreDataProject/Controllers/CompanyListViewController.swift"
-            timestampString = "576486090.424456"
+            timestampString = "576488063.434815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "userDidEnterInformation(info:)"
+            landmarkName = "userDidEnterInformation(company:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyCoreDataProject/Controllers/CompanyListViewController.swift"
-            timestampString = "576486339.1033781"
+            timestampString = "576488063.434871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyCoreDataProject/Controllers/CompanyListViewController.swift"
-            timestampString = "576486342.579937"
+            timestampString = "576488063.434921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
@@ -154,12 +154,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyCoreDataProject/Controllers/CompanyListViewController.swift"
-            timestampString = "576486362.234694"
+            timestampString = "576488063.43497"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyCoreDataProject/Controllers/CreateCompanyViewController.swift"
+            timestampString = "576488063.4350179"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "handleAddCompany()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyCoreDataProject/Controllers/CreateCompanyViewController.swift"
+            timestampString = "576491971.840506"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "handleAddCompany()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyCoreDataProject/Controllers/CreateCompanyViewController.swift"
+            timestampString = "576491972.503145"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "handleAddCompany()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
