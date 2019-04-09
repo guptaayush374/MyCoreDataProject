@@ -119,6 +119,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		E92F138A225C6FC20096BBC0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E9C67A7F225B52A200D0185B /* UIColor+theme.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		E9C67A40225B25F800D0185B = {
 			isa = PBXGroup;
 			children = (
@@ -143,12 +151,12 @@
 			isa = PBXGroup;
 			children = (
 				E9C67A4C225B25F900D0185B /* AppDelegate.swift */,
-				E9C67A7F225B52A200D0185B /* UIColor+theme.swift */,
 				E9C67A50225B25F900D0185B /* Main.storyboard */,
 				E9C67A56225B260F00D0185B /* Assets.xcassets */,
 				E9C67A58225B260F00D0185B /* LaunchScreen.storyboard */,
 				E9C67A5B225B261000D0185B /* Info.plist */,
 				E9C67A53225B25F900D0185B /* MyCoreDataProject.xcdatamodeld */,
+				E92F138A225C6FC20096BBC0 /* Utilities */,
 				E92F1389225C6D9C0096BBC0 /* Cell */,
 				E92F1388225C6D650096BBC0 /* NetworkHandler */,
 				E92F1386225C6D3A0096BBC0 /* Model */,

@@ -8,17 +8,25 @@
 
 import UIKit
 
-class CreateCompanyViewController: UIViewController {
+protocol DataEnteredDelegate: class {
+    func userDidEnterInformation(info: Company)
+}
 
+class CreateCompanyViewController: UIViewController {
+    
     @IBOutlet weak var viewBack: UIView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var textFieldName: UITextField!
     
-    var vc: CompanyListViewController?
+    weak var delegate: DataEnteredDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.setUpNavigationItem()
+    }
+    
+    func setUpNavigationItem() {
         navigationItem.title = "Create Company"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(handleAddCompany))
     }
@@ -26,9 +34,9 @@ class CreateCompanyViewController: UIViewController {
     @objc func handleAddCompany() {
         print("Adding Company...")
         
-        self.navigationController?.popViewController(animated: true)
         guard let name = self.textFieldName.text else { return }
         let company = Company(name: name, founded: Date())
-        vc?.addCompany(with: company)
+        delegate?.userDidEnterInformation(info: company)
+        self.navigationController?.popViewController(animated: true)
     }
 }

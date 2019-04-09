@@ -27,7 +27,7 @@ class CompanyListViewController: UIViewController {
         view.backgroundColor = UIColor.darkBlue
         navigationItem.title = "Companies"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAddCompany))
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addCompany))
+        //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addCompany))
         
         self.tableViewCompanyList.dataSource = self
         self.tableViewCompanyList.delegate = self
@@ -48,7 +48,7 @@ class CompanyListViewController: UIViewController {
         
         self.companies.append(company)
         print(self.companies)
-
+        
         let newIndexPath = IndexPath(row: companies.count - 1, section: 0)
         self.tableViewCompanyList.insertRows(at: [newIndexPath], with: .automatic)
     }
@@ -56,8 +56,15 @@ class CompanyListViewController: UIViewController {
     func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue.identifier == "toCreateCompany") {
             let vc = segue.destination as! CreateCompanyViewController
-            vc.vc = self
+            vc.delegate = self
         }
+    }
+}
+
+extension CompanyListViewController: DataEnteredDelegate {
+    
+    func userDidEnterInformation(info: Company) {
+        self.addCompany(with: info)
     }
 }
 
