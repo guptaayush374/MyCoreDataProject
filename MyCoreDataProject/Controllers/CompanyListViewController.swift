@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CompanyListViewController: UIViewController {
     
@@ -15,15 +16,17 @@ class CompanyListViewController: UIViewController {
     
     var companies = [Company]()
     
-//    var companies = [
-//        Company(name: "Apple", founded: Date()),
-//        Company(name: "Google", founded: Date()),
-//        Company(name: "Facebook", founded: Date()),
-//        Company(name: "Microsoft", founded: Date())
-//    ]
+    //    var companies = [
+    //        Company(name: "Apple", founded: Date()),
+    //        Company(name: "Google", founded: Date()),
+    //        Company(name: "Facebook", founded: Date()),
+    //        Company(name: "Microsoft", founded: Date())
+    //    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.fetchRequest()
         
         //Service.shared.downloadCompaniesFromServer()
         view.backgroundColor = UIColor.darkBlue
@@ -37,7 +40,32 @@ class CompanyListViewController: UIViewController {
         self.tableViewCompanyList.separatorColor = .white
         self.tableViewCompanyList.backgroundColor = UIColor.darkBlue
         
-        self.tableViewCompanyList.reloadData()
+        //self.tableViewCompanyList.reloadData()
+    }
+    
+    func fetchRequest() {
+        
+        // Attempt my core data fetch somehow...
+        
+        let persistentContainer = NSPersistentContainer(name: "MyCoreDataProject")
+        persistentContainer.loadPersistentStores { (storeDescription, error) in
+            if let err = error {
+                fatalError("Loading of store failed: \(err)")
+            }
+        }
+        let context = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
+        
+        do {
+            let companies = try context.fetch(fetchRequest)
+            companies.forEach { (company) in
+                print(company.name ?? "")
+            }
+            self.companies = companies
+            self.tableViewCompanyList.reloadData()
+        } catch let fetchErr {
+            print("Failed to fetch companies: ", fetchErr)
+        }
     }
     
     @objc func handleAddCompany() {
