@@ -16,44 +16,25 @@ class CompanyListViewController: UIViewController {
     
     var companies = [Company]()
     
-    //    var companies = [
-    //        Company(name: "Apple", founded: Date()),
-    //        Company(name: "Google", founded: Date()),
-    //        Company(name: "Facebook", founded: Date()),
-    //        Company(name: "Microsoft", founded: Date())
-    //    ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.fetchRequest()
         
-        //Service.shared.downloadCompaniesFromServer()
         view.backgroundColor = UIColor.darkBlue
         navigationItem.title = "Companies"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAddCompany))
-        //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addCompany))
         
         self.tableViewCompanyList.dataSource = self
         self.tableViewCompanyList.delegate = self
         
         self.tableViewCompanyList.separatorColor = .white
         self.tableViewCompanyList.backgroundColor = UIColor.darkBlue
-        
-        //self.tableViewCompanyList.reloadData()
     }
     
     func fetchRequest() {
         
-        // Attempt my core data fetch somehow...
-        
-        let persistentContainer = NSPersistentContainer(name: "MyCoreDataProject")
-        persistentContainer.loadPersistentStores { (storeDescription, error) in
-            if let err = error {
-                fatalError("Loading of store failed: \(err)")
-            }
-        }
-        let context = persistentContainer.viewContext
+        let context = CoreDataManager.shared.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
         
         do {
@@ -112,6 +93,34 @@ extension CompanyListViewController: UITableViewDataSource, UITableViewDelegate 
         cell.lblCompanyName.text = self.companies[indexPath.row].name
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_, indexPath) in
+            let company = self.companies[indexPath.row]
+            print("Attempting to delete company: ", company.name ?? "")
+            
+            // Remove the company from our tableview
+            self.companies.remove(at: indexPath.row)
+            self.tableViewCompanyList.deleteRows(at: [indexPath], with: .automatic)
+            
+            // Remove the company from core data
+            let context = CoreDataManager.shared.persistentContainer.viewContext
+            context.delete(company)
+            
+            do {
+                try context.save()
+            } catch let delErr {
+                print("Failed to delete company: ", delErr)
+            }
+        }
+        
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (_, indexPath) in
+            print("Editing Company...")
+        }
+        
+        return [deleteAction, editAction]
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
