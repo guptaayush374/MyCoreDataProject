@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol DataEnteredDelegate: class {
     func userDidEnterInformation(company: Company)
@@ -34,14 +35,24 @@ class CreateCompanyViewController: UIViewController {
     @objc func handleAddCompany() {
         print("Adding Company...")
         
-        guard let name = self.textFieldName.text else { return }
-        let company = Company(name: name, founded: Date())
-        delegate?.userDidEnterInformation(company: company)
-        print(delegate ?? "")
-        if (self.delegate != nil) {
-            self.navigationController?.popViewController(animated: true)
-        } else {
-            print("Delegate is nil.")
-        }
+        // Initialization of our Core Data Stack
+        let persistentContainer = NSPersistentContainer(name: "MyCoreDataProject")
+        
+        
+        // Perform the save
+        
+        
+        
+        
+        //        guard let name = self.textFieldName.text else { return }
+        //        let company = Company(name: name, founded: Date())
+        //        delegate?.userDidEnterInformation(company: company)
+        //        print(delegate ?? "")
+        //
+        //        if (self.delegate != nil) {
+        //            self.navigationController?.popViewController(animated: true)
+        //        } else {
+        //            print("Delegate is nil.")
+        //        }
     }
 }

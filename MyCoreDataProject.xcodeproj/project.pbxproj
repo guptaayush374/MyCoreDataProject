@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48959FF5225D108000D4B33F /* MyCoreDataProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48959FF3225D108000D4B33F /* MyCoreDataProject.xcdatamodeld */; };
 		E9266F54225B59A30094A315 /* CompanyTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9266F53225B59A30094A315 /* CompanyTVCell.swift */; };
 		E9266F56225B635A0094A315 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9266F55225B635A0094A315 /* Company.swift */; };
 		E9266F58225B66D30094A315 /* CreateCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9266F57225B66D30094A315 /* CreateCompanyViewController.swift */; };
 		E9C67A4D225B25F900D0185B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C67A4C225B25F900D0185B /* AppDelegate.swift */; };
 		E9C67A4F225B25F900D0185B /* CompanyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C67A4E225B25F900D0185B /* CompanyListViewController.swift */; };
 		E9C67A52225B25F900D0185B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C67A50225B25F900D0185B /* Main.storyboard */; };
-		E9C67A55225B25F900D0185B /* MyCoreDataProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9C67A53225B25F900D0185B /* MyCoreDataProject.xcdatamodeld */; };
 		E9C67A57225B260F00D0185B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9C67A56225B260F00D0185B /* Assets.xcassets */; };
 		E9C67A5A225B260F00D0185B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C67A58225B260F00D0185B /* LaunchScreen.storyboard */; };
 		E9C67A65225B261000D0185B /* MyCoreDataProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C67A64225B261000D0185B /* MyCoreDataProjectTests.swift */; };
@@ -40,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48959FF4225D108000D4B33F /* MyCoreDataProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyCoreDataProject.xcdatamodel; sourceTree = "<group>"; };
 		E9266F53225B59A30094A315 /* CompanyTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTVCell.swift; sourceTree = "<group>"; };
 		E9266F55225B635A0094A315 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		E9266F57225B66D30094A315 /* CreateCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +48,6 @@
 		E9C67A4C225B25F900D0185B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9C67A4E225B25F900D0185B /* CompanyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListViewController.swift; sourceTree = "<group>"; };
 		E9C67A51225B25F900D0185B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E9C67A54225B25F900D0185B /* MyCoreDataProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyCoreDataProject.xcdatamodel; sourceTree = "<group>"; };
 		E9C67A56225B260F00D0185B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9C67A59225B260F00D0185B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9C67A5B225B261000D0185B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 				E9C67A56225B260F00D0185B /* Assets.xcassets */,
 				E9C67A58225B260F00D0185B /* LaunchScreen.storyboard */,
 				E9C67A5B225B261000D0185B /* Info.plist */,
-				E9C67A53225B25F900D0185B /* MyCoreDataProject.xcdatamodeld */,
+				48959FF3225D108000D4B33F /* MyCoreDataProject.xcdatamodeld */,
 				E92F138A225C6FC20096BBC0 /* Utilities */,
 				E92F1389225C6D9C0096BBC0 /* Cell */,
 				E92F1388225C6D650096BBC0 /* NetworkHandler */,
@@ -314,13 +314,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9C67A55225B25F900D0185B /* MyCoreDataProject.xcdatamodeld in Sources */,
 				E9C67A7E225B42F400D0185B /* Service.swift in Sources */,
 				E9266F58225B66D30094A315 /* CreateCompanyViewController.swift in Sources */,
 				E9C67A4F225B25F900D0185B /* CompanyListViewController.swift in Sources */,
 				E9266F54225B59A30094A315 /* CompanyTVCell.swift in Sources */,
 				E9266F56225B635A0094A315 /* Company.swift in Sources */,
 				E9C67A80225B52A200D0185B /* UIColor+theme.swift in Sources */,
+				48959FF5225D108000D4B33F /* MyCoreDataProject.xcdatamodeld in Sources */,
 				E9C67A4D225B25F900D0185B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,12 +652,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E9C67A53225B25F900D0185B /* MyCoreDataProject.xcdatamodeld */ = {
+		48959FF3225D108000D4B33F /* MyCoreDataProject.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E9C67A54225B25F900D0185B /* MyCoreDataProject.xcdatamodel */,
+				48959FF4225D108000D4B33F /* MyCoreDataProject.xcdatamodel */,
 			);
-			currentVersion = E9C67A54225B25F900D0185B /* MyCoreDataProject.xcdatamodel */;
+			currentVersion = 48959FF4225D108000D4B33F /* MyCoreDataProject.xcdatamodel */;
 			path = MyCoreDataProject.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

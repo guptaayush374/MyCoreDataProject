@@ -13,12 +13,14 @@ class CompanyListViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tableViewCompanyList: UITableView!
     
-    var companies = [
-        Company(name: "Apple", founded: Date()),
-        Company(name: "Google", founded: Date()),
-        Company(name: "Facebook", founded: Date()),
-        Company(name: "Microsoft", founded: Date())
-    ]
+    var companies = [Company]()
+    
+//    var companies = [
+//        Company(name: "Apple", founded: Date()),
+//        Company(name: "Google", founded: Date()),
+//        Company(name: "Facebook", founded: Date()),
+//        Company(name: "Microsoft", founded: Date())
+//    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +42,10 @@ class CompanyListViewController: UIViewController {
     
     @objc func handleAddCompany() {
         print("Adding Company...")
-        
         self.performSegue(withIdentifier: "toCreateCompany", sender: self)
     }
     
     func addCompany(with company: Company) {
-        
         self.companies.append(company)
         print(self.companies)
         
