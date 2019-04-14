@@ -61,7 +61,6 @@
                     <navigationItem key="navigationItem" id="0Qg-n6-qKY"/>
                     <connections>
                         <outlet property="tableViewCompanyList" destination="ItZ-qT-42v" id="t2x-8m-gYf"/>
-                        <segue destination="WqD-C5-L2u" kind="show" identifier="toCreateCompany" id="GeJ-ta-4zT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -71,7 +70,7 @@
         <!--Create Company View Controller-->
         <scene sceneID="Xkq-wy-6SE">
             <objects>
-                <viewController id="WqD-C5-L2u" customClass="CreateCompanyViewController" customModule="MyCoreDataProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateCompanyViewController" id="WqD-C5-L2u" customClass="CreateCompanyViewController" customModule="MyCoreDataProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VKf-7z-JQv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,6 +113,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i3L-hQ-BiU"/>
                     </view>
+                    <navigationItem key="navigationItem" id="A6y-zM-yTj"/>
                     <connections>
                         <outlet property="lblName" destination="WzS-qD-NMY" id="ifJ-c7-WkE"/>
                         <outlet property="textFieldName" destination="6dK-IQ-KvC" id="gJf-PN-pr9"/>
@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rq0-dS-4w3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1558" y="-654"/>
+            <point key="canvasLocation" x="2497" y="-654"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ycK-aR-5ic">
@@ -141,6 +141,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5t-OG-YeP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8.6956521739130448" y="-653.57142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Inm-5L-3Y5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M7N-Sd-Vbu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IGq-y6-Qmm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WqD-C5-L2u" kind="relationship" relationship="rootViewController" id="wjM-Dv-RJM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dXj-GS-m2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1678" y="-654"/>
         </scene>
     </scenes>
 </document>

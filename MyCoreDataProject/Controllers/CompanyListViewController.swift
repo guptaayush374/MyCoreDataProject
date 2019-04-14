@@ -50,8 +50,9 @@ class CompanyListViewController: UIViewController {
     }
     
     @objc func handleAddCompany() {
-        print("Adding Company...")
-        self.performSegue(withIdentifier: "toCreateCompany", sender: self)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreateCompanyViewController") as! CreateCompanyViewController
+        vc.delegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func addCompany(with company: Company) {
@@ -62,11 +63,10 @@ class CompanyListViewController: UIViewController {
         self.tableViewCompanyList.insertRows(at: [newIndexPath], with: .automatic)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toCreateCompany" {
-            let vc = segue.destination as! CreateCompanyViewController
-            vc.delegate = self
-        }
+    private func editHandlerFunction(action: UITableViewRowAction, indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreateCompanyViewController") as! CreateCompanyViewController
+        vc.company = self.companies[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -116,9 +116,7 @@ extension CompanyListViewController: UITableViewDataSource, UITableViewDelegate 
             }
         }
         
-        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (_, indexPath) in
-            print("Editing Company...")
-        }
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: editHandlerFunction)
         
         return [deleteAction, editAction]
     }
