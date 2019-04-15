@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct Service {
     
@@ -29,8 +30,28 @@ struct Service {
             do {
                 // i'll leave a link in the bottom if you want more details on how JSON Decodable works
                 let jsonCompanies = try jsonDecoder.decode([JSONCompany].self, from: data)
+                
+                let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                
                 jsonCompanies.forEach({ (jsonCompany) in
                     print(jsonCompany.name)
+                    
+                    let company = Company(context: privateContext)
+                    company.name = jsonCompany.name
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "MM/dd/yyyy"
+                    let foundedDate = dateFormatter.date(from: jsonCompany.founded)
+                    
+                    company.founded = foundedDate
+                    
+                    do {
+                        try privateContext.save()
+                        try privateContext.parent?.save()
+                    } catch let err {
+                        print("Failed to save companies: ", err)
+                    }
+                    
                     jsonCompany.employees?.forEach({ (jsonEmployee) in
                         print("  \(jsonEmployee.name)")
                     })

@@ -18,8 +18,8 @@ class CompanyListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.fetchRequest()
+        Service.shared.downloadCompaniesFromServer()
+        //self.fetchRequest()
         
         view.backgroundColor = UIColor.darkBlue
         navigationItem.title = "Companies"
