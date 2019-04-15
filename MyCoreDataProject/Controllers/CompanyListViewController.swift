@@ -18,8 +18,8 @@ class CompanyListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Service.shared.downloadCompaniesFromServer()
-        //self.fetchRequest()
+        
+        self.fetchRequest()
         
         view.backgroundColor = UIColor.darkBlue
         navigationItem.title = "Companies"
@@ -66,14 +66,21 @@ class CompanyListViewController: UIViewController {
     private func editHandlerFunction(action: UITableViewRowAction, indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreateCompanyViewController") as! CreateCompanyViewController
         vc.company = self.companies[indexPath.row]
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-extension CompanyListViewController: DataEnteredDelegate {
+extension CompanyListViewController: CreateCompanyViewControllerDelegate {
     
-    func userDidEnterInformation(company: Company) {
+    func disAddCompany(company: Company) {
         self.addCompany(with: company)
+    }
+    
+    func didEditCompany(company: Company) {
+        guard let row = self.companies.firstIndex(of: company) else { return }
+        let reloadIndexPath = IndexPath(row: row, section: 0)
+        self.tableViewCompanyList.reloadRows(at: [reloadIndexPath], with: .automatic)
     }
 }
 
@@ -90,7 +97,7 @@ extension CompanyListViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyTVCell", for: indexPath) as! CompanyTVCell
         
-        cell.lblCompanyName.text = self.companies[indexPath.row].name
+        cell.lblCompanyName.text = self.companies[indexPath.row].name! + ", " + self.companies[indexPath.row].founded!
         
         return cell
     }
@@ -115,8 +122,10 @@ extension CompanyListViewController: UITableViewDataSource, UITableViewDelegate 
                 print("Failed to delete company: ", delErr)
             }
         }
+        deleteAction.backgroundColor = UIColor.lightRed
         
         let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: editHandlerFunction)
+        editAction.backgroundColor = UIColor.darkBlue
         
         return [deleteAction, editAction]
     }

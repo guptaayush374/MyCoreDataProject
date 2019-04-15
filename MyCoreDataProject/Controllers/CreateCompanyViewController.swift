@@ -9,19 +9,21 @@
 import UIKit
 import CoreData
 
-protocol DataEnteredDelegate: class {
-    func userDidEnterInformation(company: Company)
+protocol CreateCompanyViewControllerDelegate: class {
+    func disAddCompany(company: Company)
+    func didEditCompany(company: Company)
 }
 
 class CreateCompanyViewController: UIViewController {
     
-    @IBOutlet weak var viewBack: UIView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var textFieldName: UITextField!
+    @IBOutlet weak var lblFounded: UILabel!
+    @IBOutlet weak var textFieldFounded: UITextField!
     
     var company: Company?
     
-    weak var delegate: DataEnteredDelegate?
+    weak var delegate: CreateCompanyViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,8 @@ class CreateCompanyViewController: UIViewController {
         
         navigationItem.title = self.company == nil ? "Create Company" : "Edit Company"
         self.textFieldName.text = self.company?.name == nil ? "" : self.company?.name
+        self.textFieldFounded.text = self.company?.founded == nil ? "" : self.company?.founded
+
     }
     
     func setUpNavigationItem() {
@@ -54,10 +58,11 @@ class CreateCompanyViewController: UIViewController {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let company = NSEntityDescription.insertNewObject(forEntityName: "Company", into: context)
         company.setValue(self.textFieldName.text, forKey: "name")
+        company.setValue(self.textFieldFounded.text, forKey: "founded")
         
         do {
             try context.save()
-            delegate?.userDidEnterInformation(company: company as! Company)
+            delegate?.disAddCompany(company: company as! Company)
             if (self.delegate != nil) {
                 self.navigationController?.popViewController(animated: true)
             } else {
@@ -71,11 +76,17 @@ class CreateCompanyViewController: UIViewController {
     private func updateCompany() {
         
         let context = CoreDataManager.shared.persistentContainer.viewContext
-        company?.name = self.textFieldName.text
-        
+        self.company?.name = self.textFieldName.text
+        self.company?.founded = self.textFieldFounded.text
+
         do {
             try context.save()
-            self.navigationController?.popViewController(animated: true)
+            delegate?.didEditCompany(company: self.company!)
+            if (self.delegate != nil) {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                print("Delegate is nil.")
+            }
         } catch let err {
             print("Failed to save company: ", err)
         }

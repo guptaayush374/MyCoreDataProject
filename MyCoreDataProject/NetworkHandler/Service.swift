@@ -39,12 +39,6 @@ struct Service {
                     let company = Company(context: privateContext)
                     company.name = jsonCompany.name
                     
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "MM/dd/yyyy"
-                    let foundedDate = dateFormatter.date(from: jsonCompany.founded)
-                    
-                    company.founded = foundedDate
-                    
                     do {
                         try privateContext.save()
                         try privateContext.parent?.save()
