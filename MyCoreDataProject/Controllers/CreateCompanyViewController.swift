@@ -19,6 +19,8 @@ class CreateCompanyViewController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var textFieldName: UITextField!
     
+    var company: Company?
+    
     weak var delegate: DataEnteredDelegate?
     
     override func viewDidLoad() {
@@ -27,12 +29,27 @@ class CreateCompanyViewController: UIViewController {
         self.setUpNavigationItem()
     }
     
-    func setUpNavigationItem() {
-        navigationItem.title = "Create Company"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(handleAddCompany))
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.title = self.company == nil ? "Create Company" : "Edit Company"
+        self.textFieldName.text = self.company?.name == nil ? "" : self.company?.name
     }
     
-    @objc func handleAddCompany() {
+    func setUpNavigationItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSave))
+    }
+    
+    @objc func handleSave() {
+        
+        if self.company == nil {
+            self.createCompany()
+        } else {
+            self.updateCompany()
+        }
+    }
+    
+    private func createCompany() {
         
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let company = NSEntityDescription.insertNewObject(forEntityName: "Company", into: context)
@@ -48,6 +65,19 @@ class CreateCompanyViewController: UIViewController {
             }
         } catch let saveErr {
             print("Failed to save company: ", saveErr)
+        }
+    }
+    
+    private func updateCompany() {
+        
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        company?.name = self.textFieldName.text
+        
+        do {
+            try context.save()
+            self.navigationController?.popViewController(animated: true)
+        } catch let err {
+            print("Failed to save company: ", err)
         }
     }
 }
