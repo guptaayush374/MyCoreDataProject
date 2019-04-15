@@ -19,5 +19,6 @@ extension Company {
 
     @NSManaged public var name: String?
     @NSManaged public var founded: String?
+    @NSManaged public var imageData: Data?
 
 }

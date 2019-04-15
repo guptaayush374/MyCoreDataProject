@@ -11,6 +11,7 @@ import UIKit
 class CompanyTVCell: UITableViewCell {
 
     @IBOutlet weak var lblCompanyName: UILabel!
+    @IBOutlet weak var imgProfile: UIImageView!
     
     override func layoutSubviews() {
         super.layoutSubviews()

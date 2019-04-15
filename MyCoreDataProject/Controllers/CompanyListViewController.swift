@@ -11,7 +11,6 @@ import CoreData
 
 class CompanyListViewController: UIViewController {
     
-    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tableViewCompanyList: UITableView!
     
     var companies = [Company]()
@@ -24,6 +23,7 @@ class CompanyListViewController: UIViewController {
         view.backgroundColor = UIColor.darkBlue
         navigationItem.title = "Companies"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAddCompany))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleReset))
         
         self.tableViewCompanyList.dataSource = self
         self.tableViewCompanyList.delegate = self
@@ -49,10 +49,28 @@ class CompanyListViewController: UIViewController {
         }
     }
     
-    @objc func handleAddCompany() {
+    @objc private func handleAddCompany() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreateCompanyViewController") as! CreateCompanyViewController
         vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc private func handleReset() {
+        print("Reset...")
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        self.companies.forEach { (company) in
+            context.delete(company)
+        }
+        
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: Company.fetchRequest())
+        
+        do {
+            try context.execute(batchDeleteRequest)
+            self.companies.removeAll()
+            self.tableViewCompanyList.reloadData()
+        } catch let err {
+            print("Failed to delete objects from coredata: ", err)
+        }
     }
     
     func addCompany(with company: Company) {
@@ -97,7 +115,21 @@ extension CompanyListViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyTVCell", for: indexPath) as! CompanyTVCell
         
-        cell.lblCompanyName.text = self.companies[indexPath.row].name! + ", " + self.companies[indexPath.row].founded!
+        let company = self.companies[indexPath.row]
+        if company.founded != "" {
+            cell.lblCompanyName.text = company.name! + " (" + company.founded! + ")"
+        } else {
+            cell.lblCompanyName.text = company.name!
+        }
+        
+        cell.imgProfile.image = #imageLiteral(resourceName: "select_photo_empty")
+        
+        if let imgData = company.imageData {
+            cell.imageView?.image = UIImage(data: imgData)
+        }
+        
+        cell.imgProfile.layer.cornerRadius = cell.imgProfile.frame.height/2
+        cell.imgProfile.clipsToBounds = true
         
         return cell
     }
@@ -130,10 +162,27 @@ extension CompanyListViewController: UITableViewDataSource, UITableViewDelegate 
         return [deleteAction, editAction]
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "No Companies Available"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        return label
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return self.companies.count == 0 ? 150 : 0
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         view.backgroundColor = UIColor.lightBlue
         return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70.0
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		07227192225E131D00A06122 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07227191225E131D00A06122 /* CoreDataManager.swift */; };
 		07EEF77F226463DB00F6D67F /* MyCoreDataProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07EEF77D226463DB00F6D67F /* MyCoreDataProject.xcdatamodeld */; };
-		07EEF7822264654600F6D67F /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EEF7802264654600F6D67F /* Company+CoreDataClass.swift */; };
-		07EEF7832264654600F6D67F /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EEF7812264654600F6D67F /* Company+CoreDataProperties.swift */; };
+		07EEF78622649AFE00F6D67F /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EEF78422649AFE00F6D67F /* Company+CoreDataClass.swift */; };
+		07EEF78722649AFE00F6D67F /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EEF78522649AFE00F6D67F /* Company+CoreDataProperties.swift */; };
 		E9266F54225B59A30094A315 /* CompanyTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9266F53225B59A30094A315 /* CompanyTVCell.swift */; };
 		E9266F56225B635A0094A315 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9266F55225B635A0094A315 /* Company.swift */; };
 		E9266F58225B66D30094A315 /* CreateCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9266F57225B66D30094A315 /* CreateCompanyViewController.swift */; };
@@ -45,8 +45,8 @@
 /* Begin PBXFileReference section */
 		07227191225E131D00A06122 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		07EEF77E226463DB00F6D67F /* MyCoreDataProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyCoreDataProject.xcdatamodel; sourceTree = "<group>"; };
-		07EEF7802264654600F6D67F /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataClass.swift"; sourceTree = "<group>"; };
-		07EEF7812264654600F6D67F /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		07EEF78422649AFE00F6D67F /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataClass.swift"; sourceTree = "<group>"; };
+		07EEF78522649AFE00F6D67F /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E9266F53225B59A30094A315 /* CompanyTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTVCell.swift; sourceTree = "<group>"; };
 		E9266F55225B635A0094A315 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		E9266F57225B66D30094A315 /* CreateCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyViewController.swift; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 		E92F1386225C6D3A0096BBC0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				07EEF7802264654600F6D67F /* Company+CoreDataClass.swift */,
-				07EEF7812264654600F6D67F /* Company+CoreDataProperties.swift */,
+				07EEF78422649AFE00F6D67F /* Company+CoreDataClass.swift */,
+				07EEF78522649AFE00F6D67F /* Company+CoreDataProperties.swift */,
 				E9266F55225B635A0094A315 /* Company.swift */,
 			);
 			path = Model;
@@ -332,8 +332,8 @@
 				07EEF77F226463DB00F6D67F /* MyCoreDataProject.xcdatamodeld in Sources */,
 				07227192225E131D00A06122 /* CoreDataManager.swift in Sources */,
 				E9C67A4D225B25F900D0185B /* AppDelegate.swift in Sources */,
-				07EEF7822264654600F6D67F /* Company+CoreDataClass.swift in Sources */,
-				07EEF7832264654600F6D67F /* Company+CoreDataProperties.swift in Sources */,
+				07EEF78622649AFE00F6D67F /* Company+CoreDataClass.swift in Sources */,
+				07EEF78722649AFE00F6D67F /* Company+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
