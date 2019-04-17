@@ -23,7 +23,9 @@ class CompanyListViewController: UIViewController {
         
         view.backgroundColor = UIColor.darkBlue
         navigationItem.title = "Companies"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAddCompany))
+        
+        self.setUpPlusButtonInNavBar(with: #selector(handleAddCompany))
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleReset))
         
         self.tableViewCompanyList.dataSource = self

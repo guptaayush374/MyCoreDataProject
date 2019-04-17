@@ -37,6 +37,8 @@ extension CompanyListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "EmployeesViewController") as! EmployeesViewController
+        let company = companies[indexPath.row]
+        vc.company = company
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

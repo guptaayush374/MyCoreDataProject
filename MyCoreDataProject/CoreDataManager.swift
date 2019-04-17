@@ -26,7 +26,7 @@ struct CoreDataManager {
     
     func fetchCompanies() -> [Company] {
         
-        let context = CoreDataManager.shared.persistentContainer.viewContext
+        let context = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
         
         do {
@@ -35,6 +35,20 @@ struct CoreDataManager {
         } catch let fetchErr {
             print("Failed to fetch companies: ", fetchErr)
             return []
+        }
+    }
+    
+    func createEmployee(employeeName: String) -> Error? {
+        
+        let context = persistentContainer.viewContext
+        let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: context)
+        employee.setValue(employeeName, forKey: "name")
+        do {
+            try context.save()
+            return nil
+        } catch let err {
+            print("Failed to create employee: ", err)
+            return err
         }
     }
 }

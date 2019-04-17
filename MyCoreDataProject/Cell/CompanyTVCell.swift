@@ -23,7 +23,7 @@ class CompanyTVCell: UITableViewCell {
                 self.lblCompanyName.text = company?.name
             }
             
-            self.imgProfile.image = #imageLiteral(resourceName: "select_photo_empty")
+            self.imgProfile.image = #imageLiteral(resourceName: "default-profile-pic")
             if let imgData = company?.imageData {
                 self.imgProfile?.image = UIImage(data: imgData)
             }

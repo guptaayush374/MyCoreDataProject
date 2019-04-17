@@ -57,8 +57,9 @@ class CreateCompanyViewController: UIViewController {
     }
     
     func setUpNavigationItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSave))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
+        
+        self.setUpSaveButtonInNavBar(with: #selector(handleSave))
+        self.setUpCancelButtonInNavBar(with: #selector(handleCancel))
     }
     
     @objc func handleselectPhoto() {
@@ -140,7 +141,6 @@ extension CreateCompanyViewController: UIImagePickerControllerDelegate, UINaviga
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print(info)
         
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             self.imgProfile.image = editedImage
