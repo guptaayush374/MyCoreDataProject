@@ -80,7 +80,7 @@ class CreateCompanyViewController: UIViewController {
     }
     
     @objc func handleCancel() {
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func createCompany() {
