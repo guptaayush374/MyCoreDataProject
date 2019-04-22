@@ -30,7 +30,7 @@ class CreateCompanyViewController: UIViewController {
         super.viewDidLoad()
         
         self.setUpNavigationItem()
-        self.imgProfile.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleselectPhoto)))
+        self.imgProfile.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectPhoto)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +62,7 @@ class CreateCompanyViewController: UIViewController {
         self.setUpCancelButtonInNavBar(with: #selector(handleCancel))
     }
     
-    @objc func handleselectPhoto() {
+    @objc func handleSelectPhoto() {
         
         print("Select Photo")
         let imagePickerController = UIImagePickerController()

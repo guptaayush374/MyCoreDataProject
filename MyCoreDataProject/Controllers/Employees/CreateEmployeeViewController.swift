@@ -8,8 +8,11 @@
 
 import UIKit
 
+protocol CreateEmployeeViewControllerDelegate {
+    func didAddEmployee(employee: Employee)
+}
+
 class CreateEmployeeViewController: UIViewController {
-    
     
     @IBOutlet weak var lblEmployeeName: UILabel!
     @IBOutlet weak var txtFieldEmployeeName: UITextField!
@@ -20,11 +23,16 @@ class CreateEmployeeViewController: UIViewController {
     @IBOutlet weak var lblProfile: UILabel!
     @IBOutlet weak var segmentProfile: UISegmentedControl!
     
+    var delegate: CreateEmployeeViewControllerDelegate?
+    
+    var company: Company?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Create Employee"
         
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.setUpSaveButtonInNavBar(with: #selector(handleSave))
         self.setUpCancelButtonInNavBar(with: #selector(handleCancel))
     }
@@ -45,12 +53,29 @@ class CreateEmployeeViewController: UIViewController {
     }
     
     @objc func handleSave() {
+        
         guard let employeeName = self.txtFieldEmployeeName.text else { return }
-        let error = CoreDataManager.shared.createEmployee(employeeName: employeeName)
-        if let error = error {
+        guard let birthday = self.txtFieldEmployeeBirthday.text else { return }
+
+        guard let company = self.company else { return }
+        
+        if employeeName.isEmpty {
+            self.showAlertWithAction(withTitle: "Alert!", andMessage: "Please enter your name.", actionHandler: nil)
+        }
+        
+        if birthday.isEmpty {
+            self.showAlertWithAction(withTitle: "Alert!", andMessage: "Please enter your birthday.", actionHandler: nil)
+        }
+        
+        guard let employeeType = self.segmentProfile.titleForSegment(at: self.segmentProfile.selectedSegmentIndex) else { return }
+        print(employeeType)
+        
+        let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, birthday: birthday, employeeType: employeeType, company: company)
+        if let error = tuple.1 {
             print(error)
         } else {
             self.navigationController?.popViewController(animated: true)
+            self.delegate?.didAddEmployee(employee: tuple.0!)
         }
     }
     

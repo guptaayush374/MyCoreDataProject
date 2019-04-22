@@ -2,7 +2,7 @@
 //  Employee+CoreDataProperties.swift
 //  MyCoreDataProject
 //
-//  Created by Shahanshah Manzoor on 17/04/19.
+//  Created by Shahanshah Manzoor on 22/04/19.
 //  Copyright © 2019 Simpliv LLC. All rights reserved.
 //
 //
@@ -18,5 +18,9 @@ extension Employee {
     }
 
     @NSManaged public var name: String?
-    @NSManaged public var birthday: String?
+    @NSManaged public var type: String?
+    @NSManaged public var employeeInfo: EmployeeInfo?
+    @NSManaged public var address: Address?
+    @NSManaged public var company: Company?
+
 }

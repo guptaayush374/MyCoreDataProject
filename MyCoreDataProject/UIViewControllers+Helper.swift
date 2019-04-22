@@ -21,4 +21,14 @@ extension UIViewController {
     func setUpSaveButtonInNavBar(with selector: Selector) {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: selector)
     }
+    
+    func showAlertWithAction(withTitle title: String, andMessage message: String, actionHandler: (()->())?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            if let handler = actionHandler {
+                handler()
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

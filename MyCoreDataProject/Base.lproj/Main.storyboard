@@ -203,6 +203,7 @@
                                     <segment title="Executive"/>
                                     <segment title="Manager"/>
                                     <segment title="Staff"/>
+                                    <segment title="Intern"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
