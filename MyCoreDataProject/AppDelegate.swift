@@ -17,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.setUpUINavigationBar()
         
+        let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CompanyListViewController") as! CompanyListViewController
+        
+        let navController = UINavigationController(rootViewController: mainVC)
+        navController.navigationBar.isHidden = false
+        self.window?.rootViewController = navController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
     
